@@ -74,6 +74,6 @@ ridePriceNew = ridePriceNew.replace(".", ",");
 
 ridePriceNew = ridePriceNew += "€";
 
-console.log (ridePriceNew);
+//ADD ticket-price in the HTML
 
 document.getElementById("ticket-price").innerHTML = ridePriceNew;
