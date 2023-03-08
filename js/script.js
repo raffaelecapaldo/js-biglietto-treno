@@ -75,8 +75,14 @@ ridePriceNew = ridePriceNew.replace(".", ",");
 ridePriceNew = ridePriceNew += "€";
 //ADD ticket-price in the HTML
 document.getElementById("ticket-price").innerHTML = ridePriceNew;
-// WRITE BASE PRICE IN HTML (EURO FORMATTED)
+// WRITE BASE PRICE IN HTML ONLY IF OFFER IS APPLIED (EURO FORMATTED)
+if (ageUser < youngTarget || (ageUser > seniorTarget)) {
 ridePrice = ridePrice.toFixed(2);
 ridePrice = ridePrice.replace(".", ",");
 ridePrice = ridePrice += "€";
 document.getElementById("base-price").innerHTML = ridePrice;
+}
+// OTHERWISE EMPTY THE DIV
+else {
+    document.getElementById("pricebase-box").innerHTML = "";
+}
