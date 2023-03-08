@@ -34,10 +34,10 @@ if (ageUser && !isNaN(ageUser)) {
         ridePrice = kmPrice * kmRide;
         //APPLY THE OFFER BASED ON THE AGE
         if(ageUser <= youngTarget) {
-            ridePriceNew = ridePrice - (ridePrice * 100 / youngOffer);
+            ridePriceNew = ridePrice - (ridePrice * youngOffer / 100);
         }
         if (ageUser > seniorTarget ) {
-            ridePriceNew = ridePrice - (ridePrice * 100 / seniorOffer);
+            ridePriceNew = ridePrice - (ridePrice * seniorOffer / 100);
 
         }
 
@@ -75,3 +75,5 @@ ridePriceNew = ridePriceNew.replace(".", ",");
 ridePriceNew = ridePriceNew += "€";
 
 console.log (ridePriceNew);
+
+document.getElementById("ticket-price").innerHTML = ridePriceNew;
