@@ -1,0 +1,66 @@
+/* Il programma dovrà chiedere all'utente il numero di chilometri che vuole percorrere e l'età del passeggero.
+Sulla base di queste informazioni dovrà calcolare il prezzo totale del viaggio, secondo queste regole:
+il prezzo del biglietto è definito in base ai km (0.21 € al km)
+va applicato uno sconto del 20% per i minorenni
+va applicato uno sconto del 40% per gli over 65.
+L'output del prezzo finale va messo fuori in forma umana (con massimo due decimali, per indicare centesimi sul prezzo). */
+
+
+// VARIABLES
+let kmRide;
+let ageUser;
+const kmPrice = 0.21;
+let ridePrice;
+let ridePriceNew;
+const youngTarget = 18;
+const seniorTarget = 65;
+const youngOffer = 20;
+const seniorOffer = 40;
+let ticketPrice;
+
+// ASK USER FOR HIS AGE
+ageUser = prompt("Qual è la tua età?");
+//CONVERT THE STRING IN INT
+ageUser = parseInt(ageUser);
+//CHECK INPUT
+if (ageUser && !isNaN(ageUser)) {
+    //INPUT IS OK, ASK USER FOR KMs OF THE RIDE
+    kmRide = prompt("Quanti km devi percorrere?");
+    //CONVERT THE STRING IN INT
+    kmRide = parseInt(kmRide);
+    //CHECK INPUT
+    if (kmRide && !isNaN(kmRide)) {
+        //CALC RIDE PRICE
+        ridePrice = kmPrice * kmRide;
+        //APPLY THE OFFER BASED ON THE AGE
+        if(ageUser <= youngTarget) {
+            ridePriceNew = ridePrice - (ridePrice * 100 / youngOffer);
+        }
+        if (ageUser > seniorTarget ) {
+            ridePriceNew = ridePrice - (ridePrice * 100 / seniorOffer);
+
+        }
+
+        else
+
+        {
+            ridePriceNew = ridePrice;
+        }
+        
+    
+    
+        //INPUT CHECK FAILED
+    } else {
+        alert("Non hai inserito un kilometraggio valido, riprova.");
+        location.reload();
+    }
+}
+
+
+//INPUT CHECK FAILED
+else {
+    alert("Non hai inserito un'età, riprova.");
+    location.reload();
+}
+
+
