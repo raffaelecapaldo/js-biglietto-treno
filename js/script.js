@@ -63,4 +63,15 @@ else {
     location.reload();
 }
 
+// MAKE THE PRICE IN EURO FORMAT (2 decimals)
 
+ridePriceNew = ridePriceNew.toFixed(2);
+// REPLACE DOT WITH COMMA (euro format)
+
+ridePriceNew = ridePriceNew.replace(".", ",");
+
+//ADD EURO SYMBOL 
+
+ridePriceNew = ridePriceNew += "€";
+
+console.log (ridePriceNew);
