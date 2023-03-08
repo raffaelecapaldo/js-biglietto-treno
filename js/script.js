@@ -37,7 +37,7 @@ if (ageUser && !isNaN(ageUser)) {
             ridePriceNew = ridePrice - (ridePrice * youngOffer / 100);
             document.getElementById("offer-type").innerHTML = "Young"
         }
-        if (ageUser > seniorTarget ) {
+        else if (ageUser > seniorTarget ) {
             ridePriceNew = ridePrice - (ridePrice * seniorOffer / 100);
             document.getElementById("offer-type").innerHTML = "Senior"
 
@@ -82,3 +82,7 @@ ridePriceNew = ridePriceNew += "€";
 //ADD ticket-price in the HTML
 
 document.getElementById("ticket-price").innerHTML = ridePriceNew;
+
+// WRITE BASE PRICE IN HTML
+
+document.getElementById("base-price").innerHTML = ridePrice;
