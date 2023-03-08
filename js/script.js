@@ -33,7 +33,7 @@ if (ageUser && !isNaN(ageUser)) {
         //CALC RIDE PRICE
         ridePrice = kmPrice * kmRide;
         //APPLY THE OFFER BASED ON THE AGE
-        if (ageUser <= youngTarget) {
+        if (ageUser < youngTarget) {
             ridePriceNew = ridePrice - (ridePrice * youngOffer / 100);
             document.getElementById("offer-type").innerHTML = "Young"
         }
