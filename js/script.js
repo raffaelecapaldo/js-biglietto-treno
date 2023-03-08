@@ -5,7 +5,6 @@ va applicato uno sconto del 20% per i minorenni
 va applicato uno sconto del 40% per gli over 65.
 L'output del prezzo finale va messo fuori in forma umana (con massimo due decimali, per indicare centesimi sul prezzo). */
 
-
 // VARIABLES
 let kmRide;
 let ageUser;
@@ -16,14 +15,19 @@ const youngTarget = 18;
 const seniorTarget = 65;
 const youngOffer = 20;
 const seniorOffer = 40;
+const maxAge = 130;
 let ticketPrice;
-
 // ASK USER FOR HIS AGE
 ageUser = prompt("Qual è la tua età?");
 //CONVERT THE STRING IN INT
 ageUser = parseInt(ageUser);
+//CHECK INPUT FOR MAX AGE
+if (ageUser && !isNaN(ageUser) && ageUser > maxAge) {
+    alert("Sei probabilmente morto, buon riposo.")
+    location.reload();
+}
 //CHECK INPUT
-if (ageUser && !isNaN(ageUser)) {
+else if (ageUser && !isNaN(ageUser)) {
     //INPUT IS OK, ASK USER FOR KMs OF THE RIDE
     kmRide = prompt("Quanti km devi percorrere?");
     //CONVERT THE STRING IN INT
@@ -41,16 +45,11 @@ if (ageUser && !isNaN(ageUser)) {
             ridePriceNew = ridePrice - (ridePrice * seniorOffer / 100);
             document.getElementById("offer-type").innerHTML = "Senior"
 
-
         }
-
         else {
             ridePriceNew = ridePrice;
             document.getElementById("offer-type").innerHTML = "Base"
-
         }
-
-
 
         //INPUT CHECK FAILED
     } else {
@@ -59,34 +58,23 @@ if (ageUser && !isNaN(ageUser)) {
     }
 }
 
-
 //INPUT CHECK FAILED
 else {
     alert("Non hai inserito un'età, riprova.");
     location.reload();
 }
-
 //WRITE THE AGE IN THE TICKET html
 document.getElementById("user-age").innerHTML = ageUser;
-
 //WRITE RIDE KMs IN THE TICKET html
 document.getElementById("ride-km").innerHTML = kmRide;
-
 // MAKE THE PRICE IN EURO FORMAT (2 decimals)
-
 ridePriceNew = ridePriceNew.toFixed(2);
 // REPLACE DOT WITH COMMA (euro format)
-
 ridePriceNew = ridePriceNew.replace(".", ",");
-
 //ADD EURO SYMBOL 
-
 ridePriceNew = ridePriceNew += "€";
-
 //ADD ticket-price in the HTML
-
 document.getElementById("ticket-price").innerHTML = ridePriceNew;
-
 // WRITE BASE PRICE IN HTML (EURO FORMATTED)
 ridePrice = ridePrice.toFixed(2);
 ridePrice = ridePrice.replace(".", ",");
