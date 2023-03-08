@@ -33,27 +33,25 @@ if (ageUser && !isNaN(ageUser)) {
         //CALC RIDE PRICE
         ridePrice = kmPrice * kmRide;
         //APPLY THE OFFER BASED ON THE AGE
-        if(ageUser <= youngTarget) {
+        if (ageUser <= youngTarget) {
             ridePriceNew = ridePrice - (ridePrice * youngOffer / 100);
             document.getElementById("offer-type").innerHTML = "Young"
         }
-        else if (ageUser > seniorTarget ) {
+        else if (ageUser > seniorTarget) {
             ridePriceNew = ridePrice - (ridePrice * seniorOffer / 100);
             document.getElementById("offer-type").innerHTML = "Senior"
 
 
         }
 
-        else
-
-        {
+        else {
             ridePriceNew = ridePrice;
             document.getElementById("offer-type").innerHTML = "Base"
 
         }
-        
-    
-    
+
+
+
         //INPUT CHECK FAILED
     } else {
         alert("Non hai inserito un kilometraggio valido, riprova.");
@@ -67,6 +65,12 @@ else {
     alert("Non hai inserito un'età, riprova.");
     location.reload();
 }
+
+//WRITE THE AGE IN THE TICKET html
+document.getElementById("user-age").innerHTML = ageUser;
+
+//WRITE RIDE KMs IN THE TICKET html
+document.getElementById("ride-km").innerHTML = kmRide;
 
 // MAKE THE PRICE IN EURO FORMAT (2 decimals)
 
@@ -83,6 +87,8 @@ ridePriceNew = ridePriceNew += "€";
 
 document.getElementById("ticket-price").innerHTML = ridePriceNew;
 
-// WRITE BASE PRICE IN HTML
-
+// WRITE BASE PRICE IN HTML (EURO FORMATTED)
+ridePrice = ridePrice.toFixed(2);
+ridePrice = ridePrice.replace(".", ",");
+ridePrice = ridePrice += "€";
 document.getElementById("base-price").innerHTML = ridePrice;
