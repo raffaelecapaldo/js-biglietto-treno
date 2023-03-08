@@ -27,13 +27,13 @@ if (ageUser && !isNaN(ageUser) && ageUser > maxAge) {
     location.reload();
 }
 //CHECK INPUT
-else if (ageUser && !isNaN(ageUser)) {
+else if (ageUser && !isNaN(ageUser) && ageUser > 0) {
     //INPUT IS OK, ASK USER FOR KMs OF THE RIDE
     kmRide = prompt("Quanti km devi percorrere?");
     //CONVERT THE STRING IN INT
     kmRide = parseInt(kmRide);
     //CHECK INPUT
-    if (kmRide && !isNaN(kmRide)) {
+    if (kmRide && !isNaN(kmRide) && kmRide > 0 ) {
         //CALC RIDE PRICE
         ridePrice = kmPrice * kmRide;
         //APPLY THE OFFER BASED ON THE AGE
@@ -60,7 +60,7 @@ else if (ageUser && !isNaN(ageUser)) {
 
 //INPUT CHECK FAILED
 else {
-    alert("Non hai inserito un'età, riprova.");
+    alert("Non hai inserito un'età valida, riprova.");
     location.reload();
 }
 //WRITE THE AGE IN THE TICKET html
