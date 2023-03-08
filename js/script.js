@@ -35,9 +35,12 @@ if (ageUser && !isNaN(ageUser)) {
         //APPLY THE OFFER BASED ON THE AGE
         if(ageUser <= youngTarget) {
             ridePriceNew = ridePrice - (ridePrice * youngOffer / 100);
+            document.getElementById("offer-type").innerHTML = "Young"
         }
         if (ageUser > seniorTarget ) {
             ridePriceNew = ridePrice - (ridePrice * seniorOffer / 100);
+            document.getElementById("offer-type").innerHTML = "Senior"
+
 
         }
 
@@ -45,6 +48,8 @@ if (ageUser && !isNaN(ageUser)) {
 
         {
             ridePriceNew = ridePrice;
+            document.getElementById("offer-type").innerHTML = "Base"
+
         }
         
     
